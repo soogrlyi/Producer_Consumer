@@ -17,6 +17,6 @@ public class CostcoSimulation {
 
         CheckoutQueue queue = new CheckoutQueue(queueSize);
 
-        // partner will add threads here later
+        // add threads here
     }
 }
