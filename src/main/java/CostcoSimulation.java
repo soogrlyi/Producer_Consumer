@@ -18,5 +18,18 @@ public class CostcoSimulation {
         CheckoutQueue queue = new CheckoutQueue(queueSize);
 
         // add threads here
+        // Start cashier threads first
+        for (int i = 1; i <= numCashiers; i++) {
+            Thread cashierThread = new Thread(new Cashier(i, queue));
+            cashierThread.start();
+        }
+
+        // Start customer threads
+        for (int i = 1; i <= numCustomers; i++) {
+            Thread customerThread = new Thread(new Customer(i, queue));
+            customerThread.start();
+        }
+
+        System.out.println("Simulation started.");
     }
 }
